@@ -1,0 +1,10 @@
+import { IAuthPayload } from './index';
+
+declare global {
+  namespace Express {
+    interface Request {
+      user?: IAuthPayload;
+    }
+  }
+}
+export {};
