@@ -49,6 +49,14 @@ app.get('/health', (_req: Request, res: Response) => {
   });
 });
 
+app.get('/', (_req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'online',
+    message: 'Smart Leads Dashboard Backend API is running.',
+    version: '1.0.0'
+  });
+});
+
 // Mounting all application routes under /api
 app.use('/api', routes);
 
