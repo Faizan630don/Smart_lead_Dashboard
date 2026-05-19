@@ -1,4 +1,10 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5005/api';
+let baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5005/api';
+baseUrl = baseUrl.replace(/\/+$/, ''); // Clean trailing slashes
+if (!baseUrl.endsWith('/api')) {
+  baseUrl = `${baseUrl}/api`;
+}
+
+export const API_BASE_URL = baseUrl;
 export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Smart Leads Dashboard';
 
 export const LEAD_STATUS_OPTIONS = [
